@@ -1,10 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var request = require('request');
 
 var app = express();
 
 var port = process.env.PORT || 3000;
 app.listen(port);
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use('/assets', express.static(__dirname + '/public'));
 
@@ -17,4 +20,20 @@ app.use('/', function (req, res, next) {
 
 app.get('/', function (req, res) {
   res.render('index');
+});
+
+app.get('/search', urlencodedParser, function (req, res) {
+  var API = "AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA";
+  var query = req.query.search;
+  console.log(query);
+  
+  var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+san+juan&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA";
+  //`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${query}&radius=16000&type=gym&key=${API}`
+  
+  request(url, function(e, response, body) {
+    if (!e && response.statusCode == 200) {
+      var data = JSON.parse(body)
+      res.render('search', { data: data });
+    }
+  });
 });
