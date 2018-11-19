@@ -23,17 +23,15 @@ app.get('/', function (req, res) {
 });
 
 app.get('/search', urlencodedParser, function (req, res) {
-  var API = "AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA";
-  var query = req.query.search;
-  console.log(query);
-  
-  var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+san+juan&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA";
-  //`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${query}&radius=16000&type=gym&key=${API}`
-  
+  var API = "&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA";
+  var query = req.query.search;  
+  var url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+${query}&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA`;
+  var source = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference="
+
   request(url, function(e, response, body) {
     if (!e && response.statusCode == 200) {
-      var data = JSON.parse(body)
-      res.render('search', { data: data });
+      var data = JSON.parse(body)      
+      res.render('search', { data: data, api: API , source: source });
     }
   });
 });
