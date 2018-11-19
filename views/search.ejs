@@ -1,5 +1,37 @@
-<h1>Results: </h1>
+<!DOCTYPE html>
 
-<% data["results"].forEach(function(gym) { %>
-  <li><%= gym["name"] %></li>
-<% }) %>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gym Finder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/style.css" type="text/css">
+  </head>
+
+  <body>
+
+    <h1>Gym Finder</h1>
+
+    <h2>Results: </h2>
+    <div class="container">
+      <% data["results"].forEach(function(gym) { %>
+      <div class="card">
+        <h3><%= gym.name %></h3>
+        
+        <% if (gym.photos) { %>
+          <img src="<%= source %><%= gym.photos[0].photo_reference %><%= api %>" alt="Gym Photo">
+        <% } else { %>
+          <img src="https://static.thenounproject.com/png/52212-200.png" alt="Gym Photo">
+        <% } %>
+        
+        <p><strong>Rating:</strong> <%= gym.rating %>/5 </p>
+        <p><strong>Address:</strong> <%= gym.formatted_address %></p>
+        
+      </div>
+      <% }) %>
+    </div>
+
+  </body>
+
+</html>
