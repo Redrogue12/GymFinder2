@@ -15,8 +15,8 @@
     <header>
       <div class="header row">
         <div class="title">
-          <h1>Gym Finder</h1>
-          <p>Start moving, Start living</p>
+          <h1 id="brand">Gym Finder</h1>
+          <p id="slogan">Start moving, Start living</p>
         </div>
         <img src="https://raw.githubusercontent.com/Redrogue12/gym-finder/master/images/logo.jpg" class="logo" alt="Arm Logo">
         <div class="title">
@@ -34,14 +34,15 @@
     <div class="container">
       <% data["results"].forEach(function(gym) { %>
       <div class="card">
-        <h3><%= gym.name %></h3>
         
         <% if (gym.photos) { %>
-          <img src="<%= source %><%= gym.photos[0].photo_reference %><%= api %>" alt="Gym Photo">
+          <img src="<%= source %><%= gym.photos[0].photo_reference %><%= api %>" alt="Gym Photo" class='image'>
         <% } else { %>
-          <img src="https://static.thenounproject.com/png/52212-200.png" alt="Gym Photo">
+          <img src="https://static.thenounproject.com/png/52212-200.png" alt="Gym Photo" class='image' style="background-color: white">
         <% } %>
-        
+        <h3>
+          <%= gym.name %>
+        </h3>
         <p><strong>Rating:</strong> <%= gym.rating %>/5 </p>
         <p><strong>Address:</strong> <%= gym.formatted_address %></p>
         
@@ -51,9 +52,7 @@
 
     <footer id="footer">
       <p>By: Edgar X. González Cortés</p>
-      <p>|</p>
       <p>Y00-26-3142</p>
-      <p>|</p>
       <p>exgc12@gmail.com</p>
     </footer>
 

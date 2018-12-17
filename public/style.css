@@ -11,31 +11,40 @@ html {
 }
 
 #container {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; 
 }
 
 .card {
   text-align: center;
+  border-radius: 5px;
   border-top: 2px solid grey;
   border-right: 2px solid grey;
   border-bottom: 2px solid black;
   border-left: 2px solid black;
-  margin-bottom: 5px;
-  margin-right: 5px;
+  margin: 0 auto 20px auto;
   width: 100%;
-  max-width: 380px;
+  max-width: 300px;
   min-height: 200px;
-  background-color: #0496FF;
+  background-color: #D9DCD6;
+  color: black;
+}
+
+.image {
+  height: 200px;
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 
 /* Nav */
@@ -116,10 +125,45 @@ footer {
   justify-content: space-evenly
 }
 
-footer>p {
-  margin-left: 50px;
-}
-
 #footer {
     bottom: -50px;
+}
+
+@media (max-width: 600px) {
+    .title {
+        width: 200px;
+    }
+
+    footer {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+    }
+
+    #footer {
+         bottom: -150px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    header {
+        min-width: 500px;
+    } 
+
+    .title {
+        width: 150px;
+    }
+
+    #brand {
+        margin-left: 15px;
+    }
+
+    #slogan {
+        display: none;
+    }
+
 }
