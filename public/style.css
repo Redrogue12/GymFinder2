@@ -154,10 +154,6 @@ footer {
 
 @media (max-width: 500px) {
 
-    header {
-        min-width: 500px;
-    } 
-
     .title {
         width: 150px;
     }
