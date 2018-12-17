@@ -142,6 +142,10 @@ footer {
         height: 150px;
     }
 
+    #normal-footer {
+        bottom: 0;
+    }
+
     #footer {
          bottom: -150px;
     }
