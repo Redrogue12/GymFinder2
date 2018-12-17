@@ -1,5 +1,7 @@
 body {
   font-family: 'Special Elite';
+  background-color: #23395B;
+  color: white;
 }
 
 .container {
@@ -21,7 +23,7 @@ body {
   width: 100%;
   max-width: 380px;
   min-height: 200px;
-  background-color: aqua;
+  background-color: #0496FF;
 }
 
 /* Nav */
@@ -32,7 +34,6 @@ header {
     display: flex;
     justify-content: center;
     border-bottom: 2px solid red;
-    color: white;
 }
 
 header h1, header p {
@@ -53,4 +54,45 @@ header h1, header p {
     height: 60px;
     border-radius: 50%;
     align-self: center;
+}
+
+/* Form */
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+input[type="text"] {
+    border-radius: 3px;
+    border: 2px solid #97D8B2;
+    line-height: 32px;
+    font-size: 14px;
+    width: 80%;
+    min-width: 250px;
+    transition-property: width;
+    transition-duration: .8s;
+    transition-timing-function: linear;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #FF0000;
+    width: 100%;
+}
+
+input[type="submit"] {
+    border-radius: 3px;
+    border-bottom: 2px solid #BA0000;
+    border-right: 2px solid #BA0000;
+    border-top: none;
+    border-left: none;
+    padding-top: 5px;
+    margin: 15px 20%;
+    background-color: #FF0000;
+    color: white;
+    line-height: 24px;
+    width: 20%;
+    min-width: 150px;
+    font-weight: bold;
 }
