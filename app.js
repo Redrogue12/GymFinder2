@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 app.get('/search', urlencodedParser, function (req, res) {
   var API = process.env.GOOGLE_API
   var query = req.query.search;  
-  var url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+${query}${API}`;
+  var url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+${query}&key=${API}`;
   var source = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference="
 
   request(url, function(e, response, body) {
