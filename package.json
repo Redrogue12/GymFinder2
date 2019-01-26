@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Redrogue12/GymFinder2#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "heroku": "^7.19.3",

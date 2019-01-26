@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
+require('dotenv').config()
 
 var app = express();
 
@@ -23,9 +24,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/search', urlencodedParser, function (req, res) {
-  var API = "&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA";
+  var API = process.env.GOOGLE_API
   var query = req.query.search;  
-  var url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+${query}&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA`;
+  var url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+${query}${API}`;
   var source = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference="
 
   request(url, function(e, response, body) {
