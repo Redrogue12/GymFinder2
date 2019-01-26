@@ -15,7 +15,6 @@ app.use('/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 app.use('/', function (req, res, next) {
-  console.log('Request URL: ' + req.url);
   next();
 });
 
@@ -24,11 +23,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/search', urlencodedParser, function (req, res) {
-  var API = process.env.GOOGLE_API
+  var API = "&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA";
   var query = req.query.search;  
-  var url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+${query}&key=${API}`;
+  var url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=gyms+in+${query}&key=AIzaSyBjGXqGTAEkCnk0vSt5DhM4qxLPUltytGA`;
   var source = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference="
-
+  
   request(url, function(e, response, body) {
     if (!e && response.statusCode == 200) {
       var data = JSON.parse(body)      
